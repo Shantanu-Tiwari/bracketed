@@ -4,7 +4,12 @@ import React, { Suspense } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls, useGLTF, Stage } from '@react-three/drei';
 
-function Model({ modelPath, ...props }) {
+type ModelProps = {
+    modelPath: string;
+    [key: string]: any; // Allows other props like 'scale', 'position', etc.
+};
+
+function Model({ modelPath, ...props }: ModelProps) {
     const { scene } = useGLTF(modelPath);
     return <primitive object={scene} {...props} />;
 }
