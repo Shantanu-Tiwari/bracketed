@@ -45,11 +45,11 @@ export default function Hero() {
                         <span className="text-black text-lg font-bold uppercase tracking-wider">Competition Starts Soon</span>
                         <span className="text-sm text-gray-800">Don't miss out!</span>
                     </div>
-                    <Link
-                        href="/"
+                    <button
+                        onClick={() => document.getElementById('events')?.scrollIntoView({ behavior: 'smooth' })}
                         className="rounded-md bg-black px-8 py-3 text-lg font-bold text-white transition-colors duration-300 hover:bg-blue-700">
                         Register NOW!
-                    </Link>
+                    </button>
                 </div>
             </div>
 

@@ -85,7 +85,7 @@ export default function BgmiForm() {
                     </p>
                     {/* Your QR Code Image */}
                     <Image
-                        src="/my-qr-code.png" // Make sure this matches your file in /public
+                        src="/payment.jpg"
                         alt="Payment QR Code"
                         width={200}
                         height={200}

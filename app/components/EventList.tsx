@@ -3,7 +3,7 @@ import EventCard from './EventCard';
 export default function EventList() {
     return (
         // This wrapper section will have a black background
-        <section className="bg-black pt-40 pb-24 md:pt-24">
+        <section id="events" className="bg-black pt-40 pb-24 md:pt-24">
             <div className="container mx-auto px-6">
                 <h2 className="font-heading text-left text-7xl uppercase text-white">
                     The Events
