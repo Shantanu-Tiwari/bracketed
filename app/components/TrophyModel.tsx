@@ -13,8 +13,11 @@ function Model({ modelPath, ...props }: ModelProps) {
     const { scene } = useGLTF(modelPath);
     return <primitive object={scene} {...props} />;
 }
+type TrophyModelProps = {
+    modelPath: string;
+};
 
-export default function TrophyModel({ modelPath }) {
+export default function TrophyModel({ modelPath }: TrophyModelProps) {
     return (
         <div className="h-full w-full">
             <Canvas camera={{ fov: 45, position: [0, 0, 12] }}>
