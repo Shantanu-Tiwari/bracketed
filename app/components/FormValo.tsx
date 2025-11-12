@@ -4,6 +4,13 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 import toast, { Toaster } from 'react-hot-toast';
 
+type FormInputProps = {
+    label: string;
+    name: string;
+    value: string;
+    isRequired?: boolean; // The '?' makes it optional
+};
+
 export default function ValorantForm() {
     const [formData, setFormData] = useState({
         teamName: '',
@@ -40,7 +47,7 @@ export default function ValorantForm() {
     };
 
     // Helper for text inputs
-    const FormInput = ({ label, name, value, isRequired = true }) => (
+    const FormInput = ({ label, name, value, isRequired = true }: FormInputProps) => (
         <div className="mb-4">
             <label htmlFor={name} className="block text-sm font-medium text-neutral-400 mb-1">
                 {label} {isRequired ? '' : '(Optional)'}
