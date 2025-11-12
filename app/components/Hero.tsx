@@ -6,7 +6,7 @@ export default function Hero() {
     const EVENT_ONE_DATE = "2025-11-28T09:00:00";
     return (
         <section
-            className="relative flex h-dvh flex-col items-center justify-start pt-80 bg-cover bg-top text-center text-white"
+            className="relative flex h-dvh flex-col items-center justify-start pt-40 md:pt-80 bg-cover bg-top text-center text-white"
             style={{
                 backgroundImage:"linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), linear-gradient(to bottom, transparent 60%, #000 95%), url('/valorant.jpg')",
             }}

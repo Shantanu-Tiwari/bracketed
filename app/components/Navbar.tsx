@@ -32,7 +32,7 @@ export default function Navbar() {
       `}
         >
             <div className="container mx-auto px-6 flex justify-between items-center">
-                <Link href="/" className="font-heading text-2xl uppercase tracking-wider">
+                <Link href="/" className="font-heading text-2xl uppercase tracking-wider font-bold">
                     Bracketed
                 </Link>
                 <div className="flex items-center gap-6">
