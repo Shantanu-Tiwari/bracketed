@@ -103,7 +103,7 @@ export default function Footer() {
                 {/* --- UPDATED SECTION --- */}
                 <div className="flex flex-col items-center gap-2 md:flex-row md:justify-between">
                     {/* Left Side: Copyright */}
-                    <p className="text-sm text-green-400 text-center md:text-left">
+                    <p className="text-sm text-neutral-400 text-center md:text-left">
                         © {new Date().getFullYear()} Bracketed. All rights reserved.
                     </p>
 

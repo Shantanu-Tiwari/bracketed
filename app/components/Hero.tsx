@@ -1,20 +1,19 @@
 import Link from 'next/link';
-import React from 'react'
+import React from 'react';
 import CountdownTimer from "@/app/components/Countdown"; // Make sure this path is correct
 
 export default function Hero() {
     const EVENT_ONE_DATE = "2025-11-28T09:00:00";
     return (
         <section
-            // 1. This <section> is 'relative' which is correct
-            className="relative flex h-screen flex-col items-center justify-start pt-102 bg-cover bg-top text-center text-white"
+            className="relative flex h-dvh flex-col items-center justify-start pt-80 bg-cover bg-top text-center text-white"
             style={{
                 backgroundImage:"linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), linear-gradient(to bottom, transparent 60%, #000 95%), url('/valorant.jpg')",
             }}
         >
 
-            {/* 2. This div holds your H1 and P tag */}
-            <div className="z-10 flex flex-col items-center px-6">
+            {/* 3. FIXED: 'z-10' -> 'z-30' (to be on top of the z-20 bar) */}
+            <div className="z-30 flex flex-col items-center px-6 container mx-auto">
                 <h1 className="font-heading max-w-4xl text-5xl uppercase tracking-wider md:text-7xl lg:text-8xl">
                     Build A Paradise For Warriors In The Afterlife
                 </h1>
@@ -23,10 +22,12 @@ export default function Hero() {
                     glory, and register for our two upcoming events.
                 </p>
             </div>
+
+            {/* This bar is z-20 */}
             <div
                 className="
                   absolute bottom-0 left-0 w-full
-                  translate-y-1/2 /* This will work now */
+                  translate-y-1/2
                   bg-green-400 bg-opacity-50
                   backdrop-blur-sm py-6 px-6 z-20
                 "
@@ -40,8 +41,9 @@ export default function Hero() {
                 >
                     <CountdownTimer targetDate={EVENT_ONE_DATE} />
                     <div className="flex flex-col text-center">
+                        {/* I also fixed your "Don't miss out!" text to be visible on the green */}
                         <span className="text-black text-lg font-bold uppercase tracking-wider">Competition Starts Soon</span>
-                        <span className="text-sm text-gray-700">Don't miss out!</span>
+                        <span className="text-sm text-gray-800">Don't miss out!</span>
                     </div>
                     <Link
                         href="/"

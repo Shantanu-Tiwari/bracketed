@@ -19,7 +19,7 @@ type TrophyModelProps = {
 
 export default function TrophyModel({ modelPath }: TrophyModelProps) {
     return (
-        <div className="h-full w-full">
+        <div className="h-full w-full pointer-events-none md:pointer-events-auto">
             <Canvas camera={{ fov: 45, position: [0, 0, 12] }}>
                 <Suspense fallback={null}>
 
