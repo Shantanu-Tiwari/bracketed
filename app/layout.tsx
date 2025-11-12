@@ -14,8 +14,8 @@ const anton = Anton({
 });
 
 export const metadata: Metadata = {
-    title: "My Awesome Website",
-    description: "Using two fonts!",
+    title: "Bracketed",
+    description: "Host and Win gaming events!",
 };
 
 export default function RootLayout({

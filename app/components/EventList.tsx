@@ -16,7 +16,7 @@ export default function EventList() {
                             title="Event One: Valorant"
                             description="Our premier 5v5 Valorant tournament. Bring your team or join as a free agent. Amazing prizes await the victors."
                             imageUrl="/valo-event.png" // Put this image in your /public folder
-                            registerLink="/register/event-one"
+                            registerLink="/register/valo"
                             animationDirection="left"
                         />
 
@@ -25,7 +25,7 @@ export default function EventList() {
                             title="Event Two: BGMI"
                             description="Drop into the arena in our high-stakes battle royale. Last squad standing takes home the glory."
                             imageUrl="/bgmi-event.jpg"
-                            registerLink="/register/event-two"
+                            registerLink="/register/bgmi"
                             animationDirection="right"
                         />
                     </div>

@@ -1,26 +1,10 @@
-// app/components/Footer/Footer.tsx
 import Link from 'next/link';
 import React from 'react';
+import { Twitter, Instagram } from 'lucide-react';
 
-// A simple SVG icon for X (Twitter)
-const XIcon = () => (
-    <svg
-        className="h-6 w-6 fill-current"
-        viewBox="0 0 24 24"
-        aria-hidden="true"
-    >
-        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-    </svg>
-);
-
-// A simple SVG icon for Discord
 const DiscordIcon = () => (
-    <svg
-        className="h-6 w-6 fill-current"
-        viewBox="0 0 24 24"
-        aria-hidden="true"
-    >
-        <path d="M20.317 4.369a19.791 19.791 0 00-4.885-1.515.074.074 0 00-.079.037c-.21.368-.42.738-.608 1.134a18.06 18.06 0 00-5.488 0 18.2 18.2 0 00-.617-1.134.07.07 0 00-.079-.037A19.718 19.718 0 003.679 4.37a.07.07 0 00-.033.055c-.344 3.252-.398 6.59-.093 9.805a.077.077 0 00.024.058c1.43 1.137 2.946 2.002 4.542 2.656a.075.075 0 00.086-.005c.338-.204.663-.418.973-.645a.07.07 0 00.011-.088c-.083-.14-.16-.282-.232-.428a.068.068 0 01.011-.09c.126-.06.252-.122.375-.187a.068.068 0 01.074-.005c1.023.572 2.148.98 3.349 1.201a.074.074 0 00.086-.063c.032-.212.06-.427.08-.645a.075.075 0 00-.011-.088c-.074-.118-.147-.237-.216-.356a.068.068 0 01.005-.091c.12-.06.237-.122.352-.184a.07.07 0 01.075.005c.308.226.63.44.966.646a.075.075 0 00.086.005c1.597-.655 3.113-1.52 4.543-2.657a.077.077 0 00.024-.058c.305-3.215.25-6.553-.093-9.805a.07.07 0 00-.032-.055zM8.02 15.33c-.84 0-1.522-.683-1.522-1.523s.682-1.523 1.522-1.523 1.523.683 1.523 1.523-.683 1.523-1.523 1.523zm7.954 0c-.84 0-1.522-.683-1.522-1.523s.682-1.523 1.522-1.523 1.523.683 1.523 1.523-.683 1.523-1.523 1.523z" />
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
+        <path d="M13.545 2.907a13.2 13.2 0 0 0-3.257-1.011.05.05 0 0 0-.052.025c-.141.25-.297.577-.406.833a12.2 12.2 0 0 0-3.658 0 8 8 0 0 0-.412-.833.05.05 0 0 0-.052-.025c-1.125.194-2.22.534-3.257 1.011a.04.04 0 0 0-.021.018C.356 6.024-.213 9.047.066 12.032q.003.022.021.037a13.3 13.3 0 0 0 3.995 2.02.05.05 0 0 0 .056-.019q.463-.63.818-1.329a.05.05 0 0 0-.01-.059l-.018-.011a9 9 0 0 1-1.248-.595.05.05 0 0 1-.02-.066l.015-.019q.127-.095.248-.195a.05.05 0 0 1 .051-.007c2.619 1.196 5.454 1.196 8.041 0a.05.05 0 0 1 .053.007q.121.1.248.195a.05.05 0 0 1-.004.085 8 8 0 0 1-1.249.594.05.05 0 0 0-.03.03.05.05 0 0 0 .003.041c.24.465.515.909.817 1.329a.05.05 0 0 0 .056.019 13.2 13.2 0 0 0 4.001-2.02.05.05 0 0 0 .021-.037c.334-3.451-.559-6.449-2.366-9.106a.03.03 0 0 0-.02-.019m-8.198 7.307c-.789 0-1.438-.724-1.438-1.612s.637-1.613 1.438-1.613c.807 0 1.45.73 1.438 1.613 0 .888-.637 1.612-1.438 1.612m5.316 0c-.788 0-1.438-.724-1.438-1.612s.637-1.613 1.438-1.613c.807 0 1.451.73 1.438 1.613 0 .888-.631 1.612-1.438 1.612"/>
     </svg>
 );
 
@@ -52,7 +36,7 @@ export default function Footer() {
                         <ul className="mt-4 space-y-2">
                             <li>
                                 <Link
-                                    href="/register/event-one"
+                                    href="/register/valo"
                                     className="text-gray-300 transition-colors hover:text-white"
                                 >
                                     Event One: Valorant
@@ -60,7 +44,7 @@ export default function Footer() {
                             </li>
                             <li>
                                 <Link
-                                    href="/register/event-two"
+                                    href="/register/bgmi"
                                     className="text-gray-300 transition-colors hover:text-white"
                                 >
                                     Event Two: BGMI
@@ -76,22 +60,28 @@ export default function Footer() {
                         </h3>
                         <div className="mt-4 flex gap-4">
                             <a
-                                href="https://twitter.com" // Change to your link
+                                href="https://twitter.com"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="text-gray-400 transition-colors hover:text-white"
                             >
-                                <span className="sr-only">X (Twitter)</span>
-                                <XIcon />
+                                <Twitter size={24} />
                             </a>
                             <a
-                                href="https://discord.com" // Change to your link
+                                href="https://discord.gg/aFZeC2FC"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="text-gray-400 transition-colors hover:text-white"
                             >
-                                <span className="sr-only">Discord</span>
                                 <DiscordIcon />
+                            </a>
+                            <a
+                                href="https://www.instagram.com/tenacious_jss"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-gray-400 transition-colors hover:text-white"
+                            >
+                                <Instagram size={24} />
                             </a>
                         </div>
                     </div>

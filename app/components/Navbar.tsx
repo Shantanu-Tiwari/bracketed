@@ -39,7 +39,7 @@ export default function Navbar() {
                     <Link href="/register/bgmi" className="text-base font-medium hover:text-white-400">
                         BGMI
                     </Link>
-                    <Link href="/register/valorant" className="text-base font-medium hover:text-white-400">
+                    <Link href="/register/valo" className="text-base font-medium hover:text-white-400">
                         Valorant
                     </Link>
 
