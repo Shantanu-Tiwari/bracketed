@@ -3,8 +3,9 @@ import { MongoClient } from 'mongodb';
 const uri = process.env.MONGODB_URI!;
 const options = {
   tls: true,
-  tlsAllowInvalidCertificates: false,
-  tlsAllowInvalidHostnames: false,
+  tlsAllowInvalidCertificates: true,
+  tlsAllowInvalidHostnames: true,
+  tlsInsecure: true,
 };
 
 let client;
