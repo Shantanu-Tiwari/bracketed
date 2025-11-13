@@ -5,7 +5,7 @@ import { simpleRateLimit } from '@/lib/ratelimit';
 export async function POST(request: NextRequest) {
   try {
     // Get client IP
-    const ip = request.ip || request.headers.get('x-forwarded-for') || 'unknown';
+    const ip = request.headers.get('x-forwarded-for') || 'unknown';
     
     // Rate limiting
     if (!simpleRateLimit(ip)) {

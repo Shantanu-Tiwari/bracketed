@@ -3,7 +3,7 @@ import { SignJWT } from 'jose';
 import { simpleRateLimit } from '@/lib/ratelimit';
 
 export async function POST(request: NextRequest) {
-  const ip = request.ip || request.headers.get('x-forwarded-for') || 'unknown';
+  const ip = request.headers.get('x-forwarded-for') || 'unknown';
   
   if (!simpleRateLimit(`admin_login_${ip}`, 5, 300)) {
     return NextResponse.json({ error: 'Too many login attempts' }, { status: 429 });
