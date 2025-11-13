@@ -8,8 +8,26 @@ type FormInputProps = {
     label: string;
     name: string;
     value: string;
-    isRequired?: boolean; // The '?' makes it optional
+    isRequired?: boolean;
+    onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
+
+const FormInput = ({ label, name, value, isRequired = true, onChange }: FormInputProps) => (
+    <div className="mb-4">
+        <label htmlFor={name} className="block text-sm font-medium text-gray-300 mb-1">
+            {label} {isRequired ? '' : '(Optional)'}
+        </label>
+        <input
+            type="text"
+            id={name}
+            name={name}
+            value={value}
+            onChange={onChange}
+            required={isRequired}
+            className="w-full px-4 py-2 bg-gray-800 text-white border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+        />
+    </div>
+);
 
 export default function BgmiForm() {
     const [formData, setFormData] = useState({
@@ -40,30 +58,49 @@ export default function BgmiForm() {
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
+        
+        const form = e.target as HTMLFormElement;
+        const formDataToSend = new FormData(form);
+        
+        // Add text fields to FormData
+        Object.entries(formData).forEach(([key, value]) => {
+            formDataToSend.set(key, value);
+        });
 
-        // We'll add the Supabase logic here later
+        try {
+            const response = await fetch('/api/register/bgmi', {
+                method: 'POST',
+                body: formDataToSend,
+            });
 
-        console.log('BGMI Form Data:', formData);
-        toast.success('Form filled successfully!');
+            if (response.ok) {
+                toast.success('Registration submitted successfully!');
+                setFormData({
+                    teamName: '',
+                    collegeName: '',
+                    contact1: '',
+                    contact2: '',
+                    leaderName: '',
+                    leaderId: '',
+                    player2Name: '',
+                    player2Id: '',
+                    player3Name: '',
+                    player3Id: '',
+                    player4Name: '',
+                    player4Id: '',
+                    subName: '',
+                    subId: '',
+                });
+            } else {
+                const errorData = await response.json();
+                toast.error(errorData.error || 'Failed to submit registration');
+            }
+        } catch (error) {
+            toast.error('Error submitting registration');
+        }
     };
 
-    // Helper for text inputs to reduce repetition
-    const FormInput = ({ label, name, value, isRequired = true }: FormInputProps) => (
-        <div className="mb-4">
-            <label htmlFor={name} className="block text-sm font-medium text-gray-300 mb-1">
-                {label} {isRequired ? '' : '(Optional)'}
-            </label>
-            <input
-                type="text"
-                id={name}
-                name={name}
-                value={value}
-                onChange={handleChange}
-                required={isRequired}
-                className="w-full px-4 py-2 bg-gray-800 text-white border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-        </div>
-    );
+
 
     return (
         <form
@@ -102,29 +139,29 @@ export default function BgmiForm() {
                 <h3 className="font-heading text-xl text-blue-300 uppercase mb-3">
                     Step 2: Team Details
                 </h3>
-                <FormInput label="Team Name" name="teamName" value={formData.teamName} />
-                <FormInput label="College Name" name="collegeName" value={formData.collegeName} />
-                <FormInput label="Contact Number 1" name="contact1" value={formData.contact1} />
-                <FormInput label="Contact Number 2" name="contact2" value={formData.contact2} />
+                <FormInput label="Team Name" name="teamName" value={formData.teamName} onChange={handleChange} />
+                <FormInput label="College Name" name="collegeName" value={formData.collegeName} onChange={handleChange} />
+                <FormInput label="Contact Number 1" name="contact1" value={formData.contact1} onChange={handleChange} />
+                <FormInput label="Contact Number 2" name="contact2" value={formData.contact2} onChange={handleChange} />
 
                 {/* Team Leader */}
                 <h4 className="font-heading text-lg text-gray-300 uppercase mt-6 mb-3">Team Leader</h4>
-                <FormInput label="Leader's Real Name" name="leaderName" value={formData.leaderName} />
-                <FormInput label="Leader's BGMI ID" name="leaderId" value={formData.leaderId} />
+                <FormInput label="Leader's Real Name" name="leaderName" value={formData.leaderName} onChange={handleChange} />
+                <FormInput label="Leader's BGMI ID" name="leaderId" value={formData.leaderId} onChange={handleChange} />
 
                 {/* Players */}
                 <h4 className="font-heading text-lg text-gray-300 uppercase mt-6 mb-3">Players</h4>
-                <FormInput label="Player 2 Real Name" name="player2Name" value={formData.player2Name} />
-                <FormInput label="Player 2 BGMI ID" name="player2Id" value={formData.player2Id} />
-                <FormInput label="Player 3 Real Name" name="player3Name" value={formData.player3Name} />
-                <FormInput label="Player 3 BGMI ID" name="player3Id" value={formData.player3Id} />
-                <FormInput label="Player 4 Real Name" name="player4Name" value={formData.player4Name} />
-                <FormInput label="Player 4 BGMI ID" name="player4Id" value={formData.player4Id} />
+                <FormInput label="Player 2 Real Name" name="player2Name" value={formData.player2Name} onChange={handleChange} />
+                <FormInput label="Player 2 BGMI ID" name="player2Id" value={formData.player2Id} onChange={handleChange} />
+                <FormInput label="Player 3 Real Name" name="player3Name" value={formData.player3Name} onChange={handleChange} />
+                <FormInput label="Player 3 BGMI ID" name="player3Id" value={formData.player3Id} onChange={handleChange} />
+                <FormInput label="Player 4 Real Name" name="player4Name" value={formData.player4Name} onChange={handleChange} />
+                <FormInput label="Player 4 BGMI ID" name="player4Id" value={formData.player4Id} onChange={handleChange} />
 
                 {/* Substitute */}
                 <h4 className="font-heading text-lg text-gray-300 uppercase mt-6 mb-3">Substitute Player</h4>
-                <FormInput label="Substitute Name" name="subName" value={formData.subName} isRequired={false} />
-                <FormInput label="Substitute BGMI ID" name="subId" value={formData.subId} isRequired={false} />
+                <FormInput label="Substitute Name" name="subName" value={formData.subName} isRequired={false} onChange={handleChange} />
+                <FormInput label="Substitute BGMI ID" name="subId" value={formData.subId} isRequired={false} onChange={handleChange} />
             </div>
 
             {/* --- Uploads Section --- */}

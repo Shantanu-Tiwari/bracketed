@@ -8,8 +8,26 @@ type FormInputProps = {
     label: string;
     name: string;
     value: string;
-    isRequired?: boolean; // The '?' makes it optional
+    isRequired?: boolean;
+    onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
+
+const FormInput = ({ label, name, value, isRequired = true, onChange }: FormInputProps) => (
+    <div className="mb-4">
+        <label htmlFor={name} className="block text-sm font-medium text-neutral-400 mb-1">
+            {label} {isRequired ? '' : '(Optional)'}
+        </label>
+        <input
+            type="text"
+            id={name}
+            name={name}
+            value={value}
+            onChange={onChange}
+            required={isRequired}
+            className="w-full px-4 py-2 bg-gray-800 text-white border border-neutral-700 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+        />
+    </div>
+);
 
 export default function ValorantForm() {
     const [formData, setFormData] = useState({
@@ -39,30 +57,49 @@ export default function ValorantForm() {
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
+        
+        const form = e.target as HTMLFormElement;
+        const formDataToSend = new FormData(form);
+        
+        // Add text fields to FormData
+        Object.entries(formData).forEach(([key, value]) => {
+            formDataToSend.set(key, value);
+        });
 
-        // We'll add Supabase logic here later
+        try {
+            const response = await fetch('/api/register/valorant', {
+                method: 'POST',
+                body: formDataToSend,
+            });
 
-        console.log('Valorant Form Data:', formData);
-        toast.success('Form filled successfully!');
+            if (response.ok) {
+                toast.success('Registration submitted successfully!');
+                setFormData({
+                    teamName: '',
+                    collegeName: '',
+                    contact1: '',
+                    contact2: '',
+                    leaderName: '',
+                    leaderRiotId: '',
+                    player2Name: '',
+                    player2RiotId: '',
+                    player3Name: '',
+                    player3RiotId: '',
+                    player4Name: '',
+                    player4RiotId: '',
+                    subName: '',
+                    subRiotId: '',
+                });
+            } else {
+                const errorData = await response.json();
+                toast.error(errorData.error || 'Failed to submit registration');
+            }
+        } catch (error) {
+            toast.error('Error submitting registration');
+        }
     };
 
-    // Helper for text inputs
-    const FormInput = ({ label, name, value, isRequired = true }: FormInputProps) => (
-        <div className="mb-4">
-            <label htmlFor={name} className="block text-sm font-medium text-neutral-400 mb-1">
-                {label} {isRequired ? '' : '(Optional)'}
-            </label>
-            <input
-                type="text"
-                id={name}
-                name={name}
-                value={value}
-                onChange={handleChange}
-                required={isRequired}
-                className="w-full px-4 py-2 bg-gray-800 text-white border border-neutral-700 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-        </div>
-    );
+
 
     return (
         <form
@@ -100,29 +137,29 @@ export default function ValorantForm() {
                 <h3 className="font-heading text-xl text-blue-300 uppercase mb-3">
                     Step 2: Team Details
                 </h3>
-                <FormInput label="Team Name" name="teamName" value={formData.teamName} />
-                <FormInput label="College Name" name="collegeName" value={formData.collegeName} />
-                <FormInput label="Contact Number 1" name="contact1" value={formData.contact1} />
-                <FormInput label="Contact Number 2" name="contact2" value={formData.contact2} />
+                <FormInput label="Team Name" name="teamName" value={formData.teamName} onChange={handleChange} />
+                <FormInput label="College Name" name="collegeName" value={formData.collegeName} onChange={handleChange} />
+                <FormInput label="Contact Number 1" name="contact1" value={formData.contact1} onChange={handleChange} />
+                <FormInput label="Contact Number 2" name="contact2" value={formData.contact2} onChange={handleChange} />
 
                 {/* Team Leader */}
                 <h4 className="font-heading text-lg text-neutral-400 uppercase mt-6 mb-3">Team Leader</h4>
-                <FormInput label="Leader's Real Name" name="leaderName" value={formData.leaderName} />
-                <FormInput label="Leader's Valorant ID (e.g., Name#Tag)" name="leaderRiotId" value={formData.leaderRiotId} />
+                <FormInput label="Leader's Real Name" name="leaderName" value={formData.leaderName} onChange={handleChange} />
+                <FormInput label="Leader's Valorant ID (e.g., Name#Tag)" name="leaderRiotId" value={formData.leaderRiotId} onChange={handleChange} />
 
                 {/* Players */}
                 <h4 className="font-heading text-lg text-neutral-400 uppercase mt-6 mb-3">Players</h4>
-                <FormInput label="Player 2 Real Name" name="player2Name" value={formData.player2Name} />
-                <FormInput label="Player 2 Valorant ID" name="player2RiotId" value={formData.player2RiotId} />
-                <FormInput label="Player 3 Real Name" name="player3Name" value={formData.player3Name} />
-                <FormInput label="Player 3 Valorant ID" name="player3RiotId" value={formData.player3RiotId} />
-                <FormInput label="Player 4 Real Name" name="player4Name" value={formData.player4Name} />
-                <FormInput label="Player 4 Valorant ID" name="player4RiotId" value={formData.player4RiotId} />
+                <FormInput label="Player 2 Real Name" name="player2Name" value={formData.player2Name} onChange={handleChange} />
+                <FormInput label="Player 2 Valorant ID" name="player2RiotId" value={formData.player2RiotId} onChange={handleChange} />
+                <FormInput label="Player 3 Real Name" name="player3Name" value={formData.player3Name} onChange={handleChange} />
+                <FormInput label="Player 3 Valorant ID" name="player3RiotId" value={formData.player3RiotId} onChange={handleChange} />
+                <FormInput label="Player 4 Real Name" name="player4Name" value={formData.player4Name} onChange={handleChange} />
+                <FormInput label="Player 4 Valorant ID" name="player4RiotId" value={formData.player4RiotId} onChange={handleChange} />
 
                 {/* Substitute */}
                 <h4 className="font-heading text-lg text-neutral-400 uppercase mt-6 mb-3">Substitute Player</h4>
-                <FormInput label="Substitute Name" name="subName" value={formData.subName} isRequired={false} />
-                <FormInput label="Substitute Valorant ID" name="subRiotId" value={formData.subRiotId} isRequired={false} />
+                <FormInput label="Substitute Name" name="subName" value={formData.subName} isRequired={false} onChange={handleChange} />
+                <FormInput label="Substitute Valorant ID" name="subRiotId" value={formData.subRiotId} isRequired={false} onChange={handleChange} />
             </div>
 
             {/* --- Uploads Section --- */}
