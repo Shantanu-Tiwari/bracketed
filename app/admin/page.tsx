@@ -18,6 +18,7 @@ export default function AdminPage() {
       }
       
       try {
+        console.log('Attempting login...');
         // Login to get JWT token
         const loginRes = await fetch('/api/admin/login', {
           method: 'POST',
@@ -25,25 +26,35 @@ export default function AdminPage() {
           body: JSON.stringify({ username, password })
         });
         
+        console.log('Login response:', loginRes.status);
+        
         if (!loginRes.ok) {
-          alert('Invalid credentials');
+          const errorText = await loginRes.text();
+          console.error('Login failed:', errorText);
+          alert(`Login failed: ${errorText}`);
           return;
         }
         
+        console.log('Login successful, fetching data...');
         // Fetch data with JWT cookie
         const dataRes = await fetch('/api/admin/registrations');
         
+        console.log('Data response:', dataRes.status);
+        
         if (!dataRes.ok) {
-          alert('Error fetching data');
+          const errorText = await dataRes.text();
+          console.error('Data fetch failed:', errorText);
+          alert(`Data fetch failed: ${errorText}`);
           return;
         }
         
         const data = await dataRes.json();
+        console.log('Data received:', data);
         setRegistrations(data);
         setAuthenticated(true);
       } catch (error) {
-        alert('Network error');
-        console.error(error);
+        console.error('Network error:', error);
+        alert(`Network error: ${error}`);
       }
     };
     
