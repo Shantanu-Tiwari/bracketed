@@ -159,12 +159,22 @@ export default function BgmiForm() {
                 </div>
             </div>
 
-            <button
-                type="submit"
-                className="w-full bg-blue-600 text-white font-bold py-3 px-6 rounded-md text-lg transition-colors duration-300 hover:bg-blue-700"
-            >
-                Submit BGMI Registration
-            </button>
+            <div className="space-y-4">
+                <a
+                    href="https://drive.google.com/file/d/1Wj4kVsVqk8op8bxIu1Bj4azezcRwHw5P/view?usp=sharing" 
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full bg-gray-600 text-white font-bold py-3 px-6 rounded-md text-lg transition-colors duration-300 hover:bg-gray-700 block text-center"
+                >
+                    View Rulebook
+                </a>
+                <button
+                    type="submit"
+                    className="w-full bg-blue-600 text-white font-bold py-3 px-6 rounded-md text-lg transition-colors duration-300 hover:bg-blue-700"
+                >
+                    Submit BGMI Registration
+                </button>
+            </div>
             <Toaster position="top-right" />
         </form>
     );
