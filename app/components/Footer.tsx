@@ -60,7 +60,7 @@ export default function Footer() {
                         </h3>
                         <div className="mt-4 flex gap-4">
                             <a
-                                href="https://twitter.com"
+                                href="https://x.com/Shant_tiw"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="text-gray-400 transition-colors hover:text-white"
