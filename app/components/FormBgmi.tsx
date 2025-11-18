@@ -198,7 +198,7 @@ export default function BgmiForm() {
 
             <div className="space-y-4">
                 <a
-                    href="https://drive.google.com/file/d/1Wj4kVsVqk8op8bxIu1Bj4azezcRwHw5P/view?usp=sharing" 
+                    href="https://drive.google.com/file/d/1EQR-ZqNBg4dISH6323H6b1Pc-vBe-sww/view?usp=sharing" 
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-full bg-gray-600 text-white font-bold py-3 px-6 rounded-md text-lg transition-colors duration-300 hover:bg-gray-700 block text-center"

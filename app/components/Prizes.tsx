@@ -53,6 +53,24 @@ export default function Prizes() {
                             All matches will be played on standard competitive settings.
                             Be respectful, play fair, and no cheating.
                         </p>
+                        <div className="mt-4 space-x-4">
+                            <a 
+                                href="https://drive.google.com/file/d/1EiXKf-5y8cfDK-39GWiDVHrlTPIfyFFR/view?usp=sharing" 
+                                target="_blank" 
+                                rel="noopener noreferrer"
+                                className="inline-block text-blue-400 hover:text-blue-300 underline"
+                            >
+                                Valorant Rulebook
+                            </a>
+                            <a 
+                                href="https://drive.google.com/file/d/1EQR-ZqNBg4dISH6323H6b1Pc-vBe-sww/view?usp=sharing" 
+                                target="_blank" 
+                                rel="noopener noreferrer"
+                                className="inline-block text-blue-400 hover:text-blue-300 underline"
+                            >
+                                BGMI Rulebook
+                            </a>
+                        </div>
                     </div>
                 </div>
 
