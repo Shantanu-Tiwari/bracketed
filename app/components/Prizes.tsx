@@ -27,13 +27,28 @@ export default function Prizes() {
                             We're not just playing for glory. Check out the rewards for our
                             top competitors.
                         </p>
-                        <ul className="mt-6 list-disc space-y-2 pl-5 text-xl">
-                            <li><span className="font-bold">1st Place:</span> $10,000 + Champion's Trophy</li>
-                            <li><span className="font-bold">2nd Place:</span> $5,000 + Premium Gear</li>
-                            <li><span className="font-bold">3rd Place:</span> $2,500</li>
-                        </ul>
+                        <div className="mt-6 space-y-6">
+                            <div>
+                                <h4 className="font-bold text-xl mb-2">Valorant</h4>
+                                <ul className="list-disc space-y-1 pl-5 text-lg">
+                                    <li><span className="font-bold">Winner:</span> ₹2,500</li>
+                                    <li><span className="font-bold">Runner-up:</span> ₹1,500</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 className="font-bold text-xl mb-2">BGMI</h4>
+                                <ul className="list-disc space-y-1 pl-5 text-lg">
+                                    <li><span className="font-bold">1st:</span> ₹3,200</li>
+                                    <li><span className="font-bold">2nd:</span> ₹1,600</li>
+                                    <li><span className="font-bold">3rd:</span> ₹800</li>
+                                    <li><span className="font-bold">4th:</span> ₹400</li>
+                                    <li><span className="font-bold">5th:</span> ₹400</li>
+                                    <li><span className="font-bold">MVP:</span> ₹600</li>
+                                </ul>
+                            </div>
+                        </div>
 
-                        <h3 className="font-heading mt-10 text-4xl uppercase">Rules & Info</h3>
+                        <h3 className="font-heading mt-8 text-4xl uppercase">Rules & Info</h3>
                         <p className="mt-4 text-lg text-gray-300">
                             All matches will be played on standard competitive settings.
                             Be respectful, play fair, and no cheating.
