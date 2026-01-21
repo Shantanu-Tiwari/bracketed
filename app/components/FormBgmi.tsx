@@ -118,7 +118,7 @@ export default function BgmiForm() {
                 </h3>
                 <div className="bg-gray-800 p-4 rounded-lg text-center">
                     <p className="text-gray-300 mb-4">
-                        Pay **₹160** using the QR code below and take a screenshot.
+                        Pay **₹200** using the QR code below and take a screenshot.
                     </p>
                     {/* Your QR Code Image */}
                     <Image
