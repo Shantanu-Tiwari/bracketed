@@ -5,7 +5,7 @@ import React from 'react';
 import CountdownTimer from "@/app/components/Countdown"; // Make sure this path is correct
 
 export default function Hero() {
-    const EVENT_ONE_DATE = "2025-11-28T09:00:00";
+    const EVENT_ONE_DATE = "2026-01-30T09:00:00";
     return (
         <section
             className="relative flex h-dvh flex-col items-center justify-start pt-40 md:pt-80 bg-cover bg-top text-center text-white"
