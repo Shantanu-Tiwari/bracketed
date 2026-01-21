@@ -36,7 +36,7 @@ export default function Prizes() {
                                 </ul>
                             </div>
                             <div>
-                                <h4 className="font-bold text-xl mb-2">BGMI</h4>
+                                <h4 className="font-bold text-xl mb-2">BGMI - Total Pool: ₹8,000</h4>
                                 <ul className="list-disc space-y-1 pl-5 text-lg">
                                     <li><span className="font-bold">1st:</span> ₹3,200</li>
                                     <li><span className="font-bold">2nd:</span> ₹1,600</li>
