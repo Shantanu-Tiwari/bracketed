@@ -43,6 +43,8 @@ export default function ValorantForm() {
         player3RiotId: '', // Changed
         player4Name: '',
         player4RiotId: '', // Changed
+        player5Name: '',
+        player5RiotId: '', // Changed
         subName: '',
         subRiotId: '', // Changed
     });
@@ -87,6 +89,8 @@ export default function ValorantForm() {
                     player3RiotId: '',
                     player4Name: '',
                     player4RiotId: '',
+                    player5Name: '',
+                    player5RiotId: '',
                     subName: '',
                     subRiotId: '',
                 });
@@ -155,6 +159,8 @@ export default function ValorantForm() {
                 <FormInput label="Player 3 Valorant ID" name="player3RiotId" value={formData.player3RiotId} onChange={handleChange} />
                 <FormInput label="Player 4 Real Name" name="player4Name" value={formData.player4Name} onChange={handleChange} />
                 <FormInput label="Player 4 Valorant ID" name="player4RiotId" value={formData.player4RiotId} onChange={handleChange} />
+                <FormInput label="Player 5 Real Name" name="player5Name" value={formData.player5Name} onChange={handleChange} />
+                <FormInput label="Player 5 Valorant ID" name="player5RiotId" value={formData.player5RiotId} onChange={handleChange} />
 
                 {/* Substitute */}
                 <h4 className="font-heading text-lg text-neutral-400 uppercase mt-6 mb-3">Substitute Player</h4>
